@@ -9,6 +9,10 @@ public class MemoryMemberRepository implements MemberRepository{
     private static Map<Long, Member> store = new HashMap<>();
     private static Long sequence = 0L;
 
+    public void clearStore() {
+        store.clear();
+    }
+
     // DB와 JPA를 통해 자동적으로 AutoIncrement 되게 했던 방식을 직접 쳐보니 아이러니하다.
     @Override
     public Member save(Member member) {
