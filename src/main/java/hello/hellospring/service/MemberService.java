@@ -2,15 +2,22 @@ package hello.hellospring.service;
 
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
-import hello.hellospring.repository.MemoryMemberRepository;
 
 import java.util.List;
 import java.util.Optional;
 
 public class MemberService {
 
-    // 강의 초기라 DI 주입을 안하는 것 같다
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    // 강의 초기라 DI 주입을 안하는 것 같다 -> 하군
+    //    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    
+    //    아래 new로 생성한 객체는 MemberServiceTest에서 생선한 객체와 동일한 객체가 아님 --> DI!! 의존성 주입 ㅎㅎ
+    //    MemoryMemberRepository repository = new MemoryMemberRepository();
+    //    외부에서 주입하도록 바꿔줌 -> 공부할 때, 많이 본 생성자 주입, 필드 주입, @AutoWired 순환참조 등등 뒤에 나오겠다
+    private final MemberRepository memberRepository;
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     /**
      * 회원 가입
@@ -49,6 +56,5 @@ public class MemberService {
                     throw new IllegalStateException("이미 존재하는 회원입니다.");
                 });
     }
-
 
 }
