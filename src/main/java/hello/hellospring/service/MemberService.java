@@ -2,13 +2,11 @@ package hello.hellospring.service;
 
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
+//@Service
 public class MemberService {
 
     // 강의 초기라 DI 주입을 안하는 것 같다 -> 하군
@@ -18,7 +16,7 @@ public class MemberService {
     //    MemoryMemberRepository repository = new MemoryMemberRepository();
     //    외부에서 주입하도록 바꿔줌 -> 공부할 때, 많이 본 생성자 주입, 필드 주입, @AutoWired 순환참조 등등 뒤에 나오겠다
     private final MemberRepository memberRepository;
-    @Autowired
+//    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
