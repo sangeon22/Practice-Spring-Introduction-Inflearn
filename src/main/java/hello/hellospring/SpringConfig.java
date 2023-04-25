@@ -30,7 +30,9 @@ public class SpringConfig {
         // return new MemoryMemberRepository();
 
         // 이 구현체만 교체해주면 된다!!!
+        // return new JdbcMemberRepository(dataSource);
         return new JdbcMemberRepository(dataSource);
     }
+
 
 }
