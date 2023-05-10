@@ -36,6 +36,12 @@ public class SpringConfig {
         return new MemberService(memberRepository);
     }
 
+    // 스프링 빈에 AOP 등록 및 명시
+//    @Bean
+//    public TimeTraceAop timeTraceAop(){
+//        return new TimeTraceAop();
+//    }
+
 //    @Bean
 //    public MemberRepository memberRepository() {
 //        // 인터페이스 X 구현체 생성
